@@ -15,7 +15,9 @@ public class Product{
 	public Sprite productImage;
 	public Button.ButtonClickedEvent showProduct; 
 	public GameObject productModel;
-	public Transform defaultTransForm; 
+	public Vector3 defaultPosition;
+	public Quaternion defaultRotation;
+	public Vector3 defaultScale ;
 }
 
 public class CreateScrollList : MonoBehaviour {
@@ -39,15 +41,18 @@ public class CreateScrollList : MonoBehaviour {
 	public LeanTouch leanTouch;
 	public LeanSelectable leanSelectable;
 	public Camera camera;
-
 	public Transform content;
+	public Text typeNameText;
+
+
 
 	// Use this for initialization
 	void Start () {
 		//titlePanel = GameObject.Find ("TitlePanel");
+
 		populateTypeList ();
 		generateAllProduct ();
-		getAllProductDefaultTransform ();
+		getDefaultState ();
 		addModelControl ();
 		deactiveAllProductModel ();
 
@@ -74,6 +79,7 @@ public class CreateScrollList : MonoBehaviour {
 		leanRotate.RequiredFingerCount = 2;
 		leanRotate.RequiredSelectable = leanSelectable;
 		leanRotate.Camera = camera;
+		leanRotate.Relative = true;
 	}
 
 	void setScaleControl (Product product){
@@ -109,10 +115,14 @@ public class CreateScrollList : MonoBehaviour {
 				product.productModel.SetActive (false);
 	}
 
-	void getAllProductDefaultTransform(){
+	void getDefaultState(){
 		foreach (var productList in allProduct)
-			foreach (var product in productList)
-				product.defaultTransForm=product.productModel.transform;
+			foreach (var product in productList) {
+				product.defaultPosition = product.productModel.transform.position;
+				product.defaultRotation = product.productModel.transform.rotation;
+				product.defaultScale = product.productModel.transform.localScale;
+			}
+				
 	}
 
 	public void populateTypeList(){
@@ -123,9 +133,13 @@ public class CreateScrollList : MonoBehaviour {
 			ProductButton Button = newButton.GetComponent<ProductButton> ();
 			Button.productImage.sprite = product.productTypeImage;
 			Button.button.onClick = product.showProductOfType;
+			product.showProductOfType.AddListener (delegate {
+				showProductOfType(productTypeList.IndexOf(product)+1);
+			});
 			newButton.transform.SetParent(content);
 		}
 		titlePanel.SetActive (false);
+		setPading (productTypeList.Count);
 	}
 
 	void populateProductList (List<Product> productList){
@@ -139,10 +153,25 @@ public class CreateScrollList : MonoBehaviour {
 	}
 	public void showProductOfType(int ID){
 		removeAllButton ();
-		populateProductList (getProductListById(ID));
+		List<Product> productList = getProductListById (ID);
+		setPading (productList.Count);
+		setProductTypeName (ID);
+		populateProductList (productList);
 		titlePanel.SetActive (true);
 	}
-		
+
+	private void setPading(int productCount){
+		HorizontalLayoutGroup layout = content.GetComponent<HorizontalLayoutGroup>() as HorizontalLayoutGroup;
+		if(productCount < 7){
+			layout.padding.left = (2560 - productCount * 300) / 2;
+			layout.padding.right = (2560 - productCount * 300) / 2;
+		}
+		else{
+			layout.padding.left = 50;
+			layout.padding.right = 50;
+		}
+		layout.spacing = 100;
+	}
 
 
 	List<Product> getProductListById(int ID){
@@ -175,6 +204,35 @@ public class CreateScrollList : MonoBehaviour {
 
 	}
 
+	void setProductTypeName(int ID){
+		switch (ID) {
+		case 1:
+			typeNameText.text= "Bed";
+			break;
+		case 2:
+			typeNameText.text= "Chair";
+			break;
+		case 3:
+			typeNameText.text= "Drawer";
+			break;
+		case 4:
+			typeNameText.text= "Lamp";
+			break;
+		case 5:
+			typeNameText.text= "Shelf";
+			break;
+		case 6:
+			typeNameText.text= "Sofa and bench";
+			break;
+		case 7:
+			typeNameText.text= "Table";
+			break;
+		default:
+			typeNameText.text= "Wardrobe";
+			break;
+		}
+	}
+
 	public void removeAllButton(){
 		foreach(Transform child in content){
 			GameObject.Destroy (child.gameObject);			
@@ -184,12 +242,13 @@ public class CreateScrollList : MonoBehaviour {
 	public void activeProductModel(Product product){
 		
 		if (activingProduct != null) {
-			activingProduct.productModel.transform.position=activingProduct.defaultTransForm.position;
+			activingProduct.productModel.transform.position = activingProduct.defaultPosition;
+			activingProduct.productModel.transform.rotation = activingProduct.defaultRotation;
+			activingProduct.productModel.transform.localScale = activingProduct.defaultScale;
 			activingProduct.productModel.SetActive (false);
 			activingProduct = null;
 		}
 		activingProduct = product;
 		activingProduct.productModel.SetActive (true);
-
 	}
 }
