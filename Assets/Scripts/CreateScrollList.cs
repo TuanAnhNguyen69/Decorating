@@ -80,6 +80,7 @@ public class CreateScrollList : MonoBehaviour {
 		leanRotate.RequiredSelectable = leanSelectable;
 		leanRotate.Camera = camera;
 		leanRotate.Relative = true;
+		leanRotate.RotateAxis = new Vector3 (1, 0, 0);
 	}
 
 	void setScaleControl (Product product){
@@ -101,9 +102,9 @@ public class CreateScrollList : MonoBehaviour {
 		allProduct = new List<List<Product>>();
 		allProduct.Add (allBed);
 		allProduct.Add (allChair);
+		allProduct.Add (allShelf);
 		allProduct.Add (allDrawer);
 		allProduct.Add (allLamp);
-		allProduct.Add (allShelf);
 		allProduct.Add (allSofa);
 		allProduct.Add (allTable);
 		allProduct.Add (allWardrobe);
@@ -183,13 +184,13 @@ public class CreateScrollList : MonoBehaviour {
 			return allChair;
 			break;
 		case 3:
-			return allDrawer;
+			return allShelf; 
 			break;
 		case 4:
-			return allLamp;
+			return allDrawer;
 			break;
 		case 5:
-			return allShelf;
+			return allLamp;
 			break;
 		case 6:
 			return allSofa;

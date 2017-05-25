@@ -1,8 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="table7" size="1.000000 1.000000" />
+    <ImageTarget name="table6" size="1.000000 1.000000" />
+    <ImageTarget name="table5" size="1.000000 1.000000" />
+    <ImageTarget name="table4" size="1.000000 1.000000" />
+    <ImageTarget name="table3" size="1.000000 1.000000" />
+    <ImageTarget name="table2" size="1.000000 1.000000" />
+    <ImageTarget name="sofa7" size="1.000000 1.000000" />
+    <ImageTarget name="sofa6" size="1.000000 1.000000" />
+    <ImageTarget name="sofa5" size="1.000000 1.000000" />
+    <ImageTarget name="Sofa2" size="1.000000 1.000000" />
+    <ImageTarget name="Sofa1" size="1.000000 1.000000" />
+    <ImageTarget name="lamp3" size="1.000000 1.000000" />
+    <ImageTarget name="lamp2" size="1.000000 1.000000" />
+    <ImageTarget name="drawer7" size="1.000000 1.000000" />
+    <ImageTarget name="drawer6" size="1.000000 1.000000" />
+    <ImageTarget name="drawer5" size="1.000000 1.000000" />
+    <ImageTarget name="drawer4" size="1.000000 1.000000" />
+    <ImageTarget name="drawer3" size="1.000000 1.000000" />
+    <ImageTarget name="drawer1" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf3" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf2" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf1" size="1.000000 1.000000" />
+    <ImageTarget name="bed10" size="1.000000 1.000000" />
+    <ImageTarget name="bed9" size="1.000000 1.000000" />
+    <ImageTarget name="wardrobe4" size="1.000000 1.000000" />
+    <ImageTarget name="wardrobe3" size="1.000000 1.000000" />
+    <ImageTarget name="wardrobe2" size="1.000000 1.000000" />
+    <ImageTarget name="wardrobe1" size="1.000000 1.000000" />
+    <ImageTarget name="table1" size="1.000000 1.000000" />
+    <ImageTarget name="sofa4" size="1.000000 1.000000" />
+    <ImageTarget name="sofa3" size="1.000000 1.000000" />
+    <ImageTarget name="lamp6" size="1.000000 1.000000" />
+    <ImageTarget name="lamp5" size="1.000000 1.000000" />
+    <ImageTarget name="lamp4" size="1.000000 1.000000" />
+    <ImageTarget name="lamp1" size="1.000000 1.000000" />
+    <ImageTarget name="drawer2" size="1.000000 1.000000" />
+    <ImageTarget name="chair12" size="1.000000 1.000000" />
+    <ImageTarget name="chair11" size="1.000000 1.000000" />
+    <ImageTarget name="chair7" size="1.000000 1.000000" />
+    <ImageTarget name="chair10" size="1.000000 1.000000" />
+    <ImageTarget name="chair9" size="1.000000 1.000000" />
+    <ImageTarget name="chair8" size="1.000000 1.000000" />
+    <ImageTarget name="chair6" size="1.000000 1.000000" />
+    <ImageTarget name="chair5" size="1.000000 1.000000" />
+    <ImageTarget name="chair4" size="1.000000 1.000000" />
+    <ImageTarget name="chair3" size="1.000000 1.000000" />
+    <ImageTarget name="chair2" size="1.000000 1.000000" />
+    <ImageTarget name="chair1" size="1.000000 1.000000" />
+    <ImageTarget name="bookshelf8" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf7" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf6" size="1.000000 0.946372" />
+    <ImageTarget name="Bookshelf5" size="1.000000 1.000000" />
+    <ImageTarget name="Bookshelf4" size="1.000000 1.000000" />
+    <ImageTarget name="bed4" size="1.000000 1.000000" />
+    <ImageTarget name="bed5" size="1.000000 1.000000" />
+    <ImageTarget name="bed12" size="1.000000 1.000000" />
+    <ImageTarget name="bed11" size="1.000000 1.000000" />
+    <ImageTarget name="bed8" size="1.000000 1.000000" />
+    <ImageTarget name="Bed7" size="1.000000 1.000000" />
+    <ImageTarget name="bed6" size="1.000000 0.986842" />
     <ImageTarget name="bed3" size="1.000000 1.000000" />
     <ImageTarget name="bed2" size="1.000000 1.000000" />
-    <ImageTarget name="bed1" size="10.000000 10.000000" />
+    <ImageTarget name="bed1" size="1.000000 1.000000" />
   </Tracking>
 </QCARConfig>

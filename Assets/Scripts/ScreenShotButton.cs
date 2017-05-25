@@ -6,6 +6,7 @@ public class ScreenShotButton : MonoBehaviour {
 	public Camera camera;
 	int resWidth = 2560; 
 	int resHeight = 1440;
+	public GameObject screenShotPanel;
 	void Start () {
 	}
 	
@@ -38,6 +39,7 @@ public class ScreenShotButton : MonoBehaviour {
 		string filename = ScreenShotName(resWidth, resHeight);
 		System.IO.File.WriteAllBytes(filename, bytes);
 		Debug.Log(string.Format("Took screenshot to: {0}", filename));
+		screenShotPanel.SetActive (true);
 	}
 }
 
